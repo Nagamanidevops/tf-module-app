@@ -1,6 +1,8 @@
 resource "aws_security_group" "main" {
-  name        = "${var.component}-docdb-security-group"
-  description = "${var.component}-docdb-security-group"
+  //name        = "${var.component}-docdb-security-group"
+  	
+  name        = "${var.env}-${var.component}-security-group"
+  description = "${var.env}-${var.component}-security-group"
   vpc_id      = var.vpc_id
 
   ingress {
@@ -26,7 +28,7 @@ resource "aws_security_group" "main" {
   }
   
 resource "aws_launch_template" "main" {
-  name_prefix   = "${var.component}-launch-template"
+  name_prefix   = "${var.env}-${var.component}-template"	
   image_id      = data.aws_ami.centos8.id
   instance_type = var.instance_type
   
@@ -48,7 +50,7 @@ resource "aws_autoscaling_group" "asg" {
   dynamic "tag" {
     for_each = local.all_tags
     content {
-    key = tag.key
+    key = tag.value.key
     value = tag.value.value
     propagate_at_launch = true
 
