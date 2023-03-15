@@ -11,6 +11,7 @@ locals{
     {  key = "business_unit", value = "ecommerce"},
     {  key = "owner", value = "ecommerce-robot"},
     { key = "name", value = "${var.env}-${var.component}"}
+    
     ]
   
 } 
