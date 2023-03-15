@@ -39,12 +39,17 @@ resource "aws_autoscaling_group" "asg" {
   desired_capacity          = var.desired_capacity
   force_delete              = true
   vpc_zone_identifier       = var.subnet_ids
+  
+  launch_template {
+    id      = aws_launch_template.main.id
+    version = "$Latest"
+  }
 
   dynamic "tag" {
     for_each = local.all_tags
     content {
-    key = each.key
-    value = each.value
+    key = tag.key
+    value = tag.value.value
     propagate_at_launch = true
 
       
