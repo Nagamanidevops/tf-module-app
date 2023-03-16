@@ -22,7 +22,7 @@ resource "aws_iam_role" "role" {
 }
 
 resource "aws_iam_instance_profile" "profile" {
-  name = "${var.env}-${var.component}-profile"
+  name = "${var.env}-${var.component}-role"
   role = aws_iam_role.role.name
 }
 
@@ -110,7 +110,6 @@ resource "aws_launch_template" "main" {
 }
 
 resource "aws_autoscaling_group" "asg" {
-  //name                      = "${var.component}-asg"
   name                = "${var.env}-${var.component}-asg"	
   max_size                  = var.max_size
   min_size                  = var.min_size
