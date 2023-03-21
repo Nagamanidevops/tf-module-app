@@ -80,7 +80,7 @@ resource "aws_security_group" "main" {
                 "ssm:GetParameter"
             ],
             "Resource": [
-            "arn:aws:ssm:us-east-1:998626143474:parameter/${var.env}-${var.component"
+            "arn:aws:ssm:us-east-1:998626143474:parameter/${var.env}-${var.component}",
             "arn:aws:ssm:us-east-1:998626143474:parameter/nexus*"
 
             ]
