@@ -113,8 +113,9 @@ resource "aws_launch_template" "main" {
     
   }
   
-  instance_market_options{
-    market_instance = "spot"
+
+   instance_market_options {
+    market_type = "spot"
   }
   
   
