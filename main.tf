@@ -84,7 +84,9 @@ resource "aws_security_group" "main" {
             "arn:aws:ssm:us-east-1:998626143474:parameter/nexus*",
            # "arn:aws:ssm:us-east-1:633788536644:parameter/${var.env}.docdb*"
             "arn:aws:ssm:us-east-1:998626143474:parameter/${var.env}.docdb*",
-            "arn:aws:ssm:us-east-1:998626143474:parameter/${var.env}.elasticache*"
+            "arn:aws:ssm:us-east-1:998626143474:parameter/${var.env}.elasticache*",
+            "arn:aws:ssm:us-east-1:998626143474:parameter/${var.env}.rds*"
+
 
 
 
