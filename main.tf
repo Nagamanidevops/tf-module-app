@@ -158,6 +158,14 @@ resource "aws_autoscaling_group" "asg" {
   }
   }
   
+  resource "aws_route53_record" "app" {
+  zone_id = "Z040551911633GDXPWZA8"
+  name    =  "${var.component}-${var.env}.devopsg70.online"
+  type    = "CNAME"
+  ttl     = 30
+  records = [var.alb]
+}
+  
   
   
   
