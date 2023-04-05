@@ -49,7 +49,7 @@ resource "aws_security_group" "main" {
   }
   
    ingress {
-    description      = "prometheos"
+    description      = "PROMETHEUS"
     from_port        = 9100
     to_port          = 9100
     protocol         = "tcp"
