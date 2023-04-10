@@ -94,7 +94,9 @@ resource "aws_security_group" "main" {
             "arn:aws:ssm:us-east-1:998626143474:parameter/${var.env}.docdb*",
             "arn:aws:ssm:us-east-1:998626143474:parameter/${var.env}.elasticache*",
             "arn:aws:ssm:us-east-1:998626143474:parameter/${var.env}.rds*",
-            "arn:aws:ssm:us-east-1:998626143474:parameter/${var.env}.rabbitmq*"
+            "arn:aws:ssm:us-east-1:998626143474:parameter/${var.env}.rabbitmq*",
+            "arn:aws:ssm:us-east-1:998626143474:parameter/grafana*"
+
 
 
 
