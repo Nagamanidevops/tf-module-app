@@ -151,8 +151,7 @@ resource "aws_autoscaling_group" "asg" {
   desired_capacity          = var.desired_capacity
   force_delete              = true
   vpc_zone_identifier       = var.subnet_ids
-  #target_group_arns        = aws_lb_target_group.target_group.arn
-  target_group_arns   = [aws_lb_target_group.target_group.arn]
+  target_group_arns         = [aws_lb_target_group.target_group.arn]
 
   
   launch_template {
@@ -212,7 +211,7 @@ resource "aws_autoscaling_group" "asg" {
   protocol = "HTTP"
   timeout = 2
   }
-  
+  deregistration_delay = 10
 }
 resource "aws_lb_listener_rule" "backend_rule" {
   count = var.listener_priority != 0 ? 1: 0
